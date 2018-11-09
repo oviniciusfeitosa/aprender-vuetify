@@ -8,6 +8,7 @@
         required
     ></v-text-field>
     <v-textarea
+        v-model="desc"
         name="input-7-1"
         box
         label="Descrição"
@@ -39,15 +40,18 @@
       </v-dialog>
       <v-btn color="info" @click="salvar()">Cadastrar</v-btn>
     </v-flex>
+    <Eventos></Eventos>
   </v-container>
 </template>
 
 <script>
 
   import { mapActions, mapGetters } from 'vuex'
+  import Eventos from './Eventos'
 
   export default {
     name: 'Cadastro',
+    components: { Eventos },
     data () {
       return {
         name: 'teste',
@@ -65,9 +69,12 @@
       },
       allowedDates: val => parseInt(val.split('-')[2], 10) % 2 === 0
     },
-    mounted () {
-      this.getEventos({ name: 'lerolero', date: 'lerolero', desc: 'lerolero' })
-
+    // mounted () {
+    //   this.getEventos({ name: 'lerolero', date: 'lerolero', desc: 'lerolero' })
+    //
+    // }
+    components: {
+      Eventos
     }
   }
 </script>

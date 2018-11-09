@@ -7,9 +7,8 @@
         class="elevation-1">
       <template slot="items" slot-scope="props">
         <td>{{ props.item.name }}</td>
-        <td class="text-xs-right">{{ props.item.name }}</td>
-        <td class="text-xs-right">{{ props.item.date }}</td>
-        <td class="text-xs-right">{{ props.item.desc }}</td>
+        <td>{{ props.item.date }}</td>
+        <td>{{ props.item.desc }}</td>
       </template>
     </v-data-table>
   </v-container>
