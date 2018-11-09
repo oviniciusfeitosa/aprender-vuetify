@@ -7,13 +7,6 @@
         label="Nome"
         required
     ></v-text-field>
-    <v-text-field
-        v-model="email"
-        :rules="emailRules"
-        :counter="10"
-        label="E-mail"
-        required
-    ></v-text-field>
     <v-textarea
         name="input-7-1"
         box
@@ -44,7 +37,7 @@
           <v-btn flat color="primary" @click="$refs.dialog.save(date)">OK</v-btn>
         </v-date-picker>
       </v-dialog>
-      <v-btn color="info">Cadastrar</v-btn>
+      <v-btn color="info" @click="salvar()">Cadastrar</v-btn>
     </v-flex>
   </v-container>
 </template>
@@ -59,31 +52,22 @@
       return {
         name: 'teste',
         nameRules: [true],
-        email: 'email',
-        emailRules: [true],
         date: '2018-03-02',
         desc: '',
         modal: false
       }
     },
     methods: {
-      ...mapActions({ getUsuario: 'usuario/usuario' }),
+      ...mapActions({ getEventos: 'eventos/eventos' }),
       salvar () {
-        const params = {
-          name: this.name,
-          email: this.email
-        }
-        this.getUsuario(params)
+        const params = { name: this.name, date: this.date, desc: this.desc }
+        this.getEventos(params)
       },
       allowedDates: val => parseInt(val.split('-')[2], 10) % 2 === 0
     },
     mounted () {
-      this.getUsuario({ email: 'primeiro commit ao inicializar' })
+      this.getEventos({ name: 'lerolero', date: 'lerolero', desc: 'lerolero' })
 
-    },
-    computed: {
-
-      ...mapGetters({ usuario2: 'usuario/obterUsuario' })
     }
   }
 </script>
