@@ -44,6 +44,7 @@
           <v-btn flat color="primary" @click="$refs.dialog.save(date)">OK</v-btn>
         </v-date-picker>
       </v-dialog>
+      <v-btn color="info">Cadastrar</v-btn>
     </v-flex>
   </v-container>
 </template>
