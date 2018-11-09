@@ -1,45 +1,6 @@
 <template>
   <v-container>
-    <v-text-field
-        v-model="name"
-        :rules="nameRules"
-        :counter="10"
-        label="Nome"
-        required
-    ></v-text-field>
-    <v-textarea
-        v-model="desc"
-        name="input-7-1"
-        box
-        label="Descrição"
-        auto-grow
-        value="The Woodman set to work at once, and so sharp was his axe that the tree was soon chopped nearly through."
-    ></v-textarea>
-    <v-flex xs12 sm6 md4>
-      <v-dialog
-          ref="dialog"
-          v-model="modal"
-          :return-value.sync="date"
-          persistent
-          lazy
-          full-width
-          width="290px"
-      >
-        <v-text-field
-            slot="activator"
-            v-model="date"
-            label="Picker in dialog"
-            prepend-icon="event"
-            readonly
-        ></v-text-field>
-        <v-date-picker v-model="date" scrollable>
-          <v-spacer></v-spacer>
-          <v-btn flat color="primary" @click="modal = false">Cancel</v-btn>
-          <v-btn flat color="primary" @click="$refs.dialog.save(date)">OK</v-btn>
-        </v-date-picker>
-      </v-dialog>
-      <v-btn color="info" @click="salvar()">Cadastrar</v-btn>
-    </v-flex>
+    <FormularioCadastro></FormularioCadastro>
     <Eventos></Eventos>
   </v-container>
 </template>
@@ -48,10 +9,11 @@
 
   import { mapActions, mapGetters } from 'vuex'
   import Eventos from './Eventos'
+  import FormularioCadastro from '../components/FormularioCadastro'
 
   export default {
     name: 'Cadastro',
-    components: { Eventos },
+    components: { FormularioCadastro, Eventos },
     data () {
       return {
         name: 'teste',
@@ -74,7 +36,8 @@
     //
     // }
     components: {
-      Eventos
+      Eventos,
+      FormularioCadastro
     }
   }
 </script>
