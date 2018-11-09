@@ -61,7 +61,8 @@
         email: 'email',
         emailRules: [true],
         date: '2018-03-02',
-        desc: ''
+        desc: '',
+        modal: false
       }
     },
     methods: {
